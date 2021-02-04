@@ -61,7 +61,7 @@ public class Second {
 
     }
 
-    class Lorry extends Car, Moveable, Stopable{
+    class Lorry extends Car implements Moveable, Stopable {
 
         public void move(){
             System.out.println("Car is moving");
@@ -70,6 +70,15 @@ public class Second {
         public void stop(){
             System.out.println("Car is stop");
         }
+
+        @Override
+        void open() {
+            System.out.println("Car is open");
+        }
+    }
+
+    public class Engine {
+        private String type = "V8";
     }
 
 }
