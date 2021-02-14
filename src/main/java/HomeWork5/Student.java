@@ -49,4 +49,14 @@ public class Student implements Serializable {
     public void setMark(int mark) {
         this.mark = mark;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", mark=" + mark +
+                '}';
+    }
+
 }
