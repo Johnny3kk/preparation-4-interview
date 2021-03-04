@@ -42,10 +42,13 @@ public class UserAuthService implements UserDetailsService {
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
+        Collection collection = new HashSet<>();
         Set<Authority> authorities = new HashSet<>();
         roles.forEach(r -> {
             r.getAuthorities().forEach(a -> authorities.add(a));
         });
-        return authorities.stream().map(a -> new SimpleGrantedAuthority(a.getName())).collect(Collectors.toList());
+        authorities.forEach(a -> collection.add(new SimpleGrantedAuthority(a.getName())));
+        roles.forEach(r -> collection.add(new SimpleGrantedAuthority(r.getName())));
+        return collection;
     }
 }

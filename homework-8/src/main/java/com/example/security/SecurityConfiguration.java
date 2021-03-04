@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/js/*").permitAll()
                 .antMatchers("/webfonts/*").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN_POWER")
-                .antMatchers("/user/**").hasAuthority("USER_POWER")
+                .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/manager/**").hasAuthority("MANAGER_POWER")
                 .and()
                 .formLogin()
